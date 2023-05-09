@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海洋</title>
+    <link rel="stylesheet" href="toubu.css">
+    <script src="jquery.mini.js"></script>
+    <script src="flexible.js"></script>
+    <style>
+        .er {
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 3.125rem;
+            /* background-color: pink; */
+            height: 50rem;
+            font-size: 1.25rem;
+            text-align: center;
+            /* background: url(imges/haiyangbg.jpg) no-repeat;
+            background-size: 100% 50rem; */
+        }
+
+        @keyframes move {
+            0% {}
+
+            100% {
+                transform: scale(1.5);
+            }
+        }
+
+        .er img {
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            animation-name: move;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .er p {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 10;
+            height: 31.25rem;
+            width: 31.25rem;
+            /* background-color: skyblue; */
+            margin: 0 auto;
+            padding-top: 16.875rem;
+            font-size: 1.25rem;
+        }
+
+        .san {
+            height: 18.75rem;
+            /* background-color: aqua; */
+        }
+
+        .san ul li {
+            float: left;
+            margin-left: 5.9375rem;
+            height: 12.5rem;
+            width: 18.75rem;
+            background-color: gray;
+            transition: all .6s;
+        }
+
+        .san ul li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .san ul li:hover {
+            float: left;
+            /* height: 18.75rem;
+            width: 25rem; */
+            transform: scale(1.2);
+            /* background-color: gray; */
+            margin-left: 5.9375rem;
+
+        }
+
+        .wenzi {
+            height: 12.5rem;
+        }
+
+        .wenzi ul li {
+            float: left;
+            margin-left: 5.9375rem;
+            height: 12.5rem;
+            width: 18.75rem;
+            /* background-color: gray; */
+            border-bottom: .0625rem solid gray;
+        }
+
+        .wenzi ul li h3,
+        .wenzi ul li p {
+            font-size: .9375rem;
+            line-height: 1.25rem;
+        }
+
+        .si {
+            margin-top: 3.125rem;
+            height: 56.25rem;
+            /* background-color: skyblue; */
+        }
+
+        .si .z {
+            overflow: hidden;
+            float: left;
+            height: 56.25rem;
+            width: 62.5rem;
+            /* background-color: gray; */
+        }
+
+        @keyframes moved {
+
+            /* 开始状态 */
+            0% {
+                transform: translateX(0rem);
+            }
+
+            /* 结束状态 */
+            33.3% {
+                transform: translateX(-62.5rem);
+            }
+
+            66.6% {
+                transform: translateX(-125rem);
+            }
+
+            100% {
+                transform: translateX(-187.5rem);
+            }
+
+
+        }
+
+        .si .z ul {
+            animation-name: moved;
+            /* 持续时间 （必须的） */
+            animation-duration: 8s;
+            /* 运动曲线  默认为ease 慢快慢  linear 匀速  step（10）即均分10步走*/
+            animation-timing-function: ease;
+            /* 何时开始 */
+            animation-delay: 1s;
+            /* 重复次数 默认是1次*/
+            animation-iteration-count: infinite;
+            width: 400%;
+            height: 100%;
+            /* background-color: pink; */
+        }
+
+        .si .z ul li {
+            float: left;
+            margin: 0;
+            height: 100%;
+            width: 25%;
+        }
+
+        .si .z img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .si .y {
+            float: right;
+            margin-right: 6.25rem;
+            height: 56.25rem;
+            width: 31.25rem;
+            /* background-color: pink; */
+            line-height: 1.875rem;
+            text-indent: 2em;
+        }
+
+        .si .y h2 {
+            margin-bottom: 5rem;
+        }
+
+        .wu {
+            margin-top: 3.125rem;
+            height: 56.25rem;
+            /* background-color: aqua; */
+        }
+
+        .wu .zuo {
+            float: left;
+            margin-left: 6.25rem;
+            height: 50rem;
+            width: 31.25rem;
+            /* background-color: rgb(53, 171, 130); */
+            line-height: 4.0625rem;
+            color: #fff;
+        }
+
+        .zhong {
+            float: left;
+            margin-left: 1.875rem;
+            height: 50rem;
+            width: 1.25rem;
+            /* background-color: antiquewhite; */
+            border-right: .0625rem solid black;
+        }
+
+        .wu .you {
+            float: right;
+            height: 50rem;
+            width: 56.25rem;
+            /* background-color: pink; */
+        }
+
+        .wu img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .back {
+            z-index: 100;
+            text-align: center;
+            line-height: 1.875rem;
+            position: fixed;
+            display: none;
+            background-color: gray;
+            width: 1.875rem;
+            height: 1.875rem;
+            right: 0;
+            top: 37.5rem;
+            cursor: pointer;
+        }
+        .ulya {
+            background: -webkit-gradient(linear, 0 100%, 100% 100%, from(rgb(12 10 45 / 70%)), to(rgb(99 78 196 / 41%)));
+        }
+        .ulya a,span {
+            color: aqua;
+        }
+        .ulya a:hover {
+            color: gray;
+        }
+        .search {
+            background: -webkit-gradient(linear, 0 100%, 100% 100%, from(rgb(12 10 45 / 70%)), to(rgb(99 78 196 / 41%)));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">↑</div>
+    <div class="top">
+        <div class="tt">
+            <span>
+                &#xe717;
+            </span>
+            <div class="ulya">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="haiyang.html">海洋</a></li>
+                    <li><a href="shanmai.html">山脉</a></li>
+                    <li><a href="senlin.html">森林</a></li>
+                </ul>
+                <div class="login">
+                    <a href="enter.html">
+                        <div class="tou"><img src="imges/tou1.png" alt=""></div>
+                        <div class="dl">登录</div>
+                    </a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="search" style="height: 1.875rem; width: 31.25rem;" value="请输入搜索内容">
+                <div class="sousuo">
+                    <a href="#" style="color: aqua;">&#xe610;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="er">
+        <img src="imges/sea.jpg" alt="">
+        <p>海洋（sea），地理名词，是地球上最广阔的水体的总称。地球表面被各大陆地分隔为彼此相通的广大水域称为海洋，海洋的中心部分称作洋，边缘部分称作海，彼此沟通组成统一的水体。地球四个主要的大洋为太平洋、大西洋、印度洋、北冰洋，大部分以陆地和海底地形线为界。当今人类已探索的海底只有5%，还有95%大海的海底是未知的。
+        </p>
+    </div>
+    <div class="san">
+        <ul>
+            <li><img src="imges/tai.jpg" alt=""></li>
+            <li><img src="imges/da.jpg" alt=""></li>
+            <li><img src="imges/yin.jpg" alt=""></li>
+            <li><img src="imges/bei.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="wenzi">
+        <ul>
+            <li>
+                <h3>太平洋</h3>
+                <p>太平洋(Pacific
+                    Ocean)是世界上最大、最深、边缘海和岛屿最多的大洋。它位于亚洲、大洋洲、南极洲和南北美洲之间。南北最长约15900千米，东西最宽约19000千米，总面积为18134.4万平方公里，平均深度3957米，最大深度11034米。
+                </p>
+            </li>
+            <li>
+                <h3>大西洋</h3>
+                <p>大西洋（英语：Atlantic
+                    Ocean），是世界第二大洋，占地球表面积的近20%，原面积9165.5万平方千米，在南冰洋成立后，面积调整为7676.2万平方千米，平均深度3627米，最深处波多黎各海沟深达9219米。大西洋呈“S”型，以赤道为界被划分成北大西洋和南大西洋。
+                </p>
+            </li>
+            <li>
+                <h3>印度洋</h3>
+                <p>印度洋（英语：Indian Ocean，阿拉伯语：المحيط الهندي，法语：Océan
+                    Indien），是世界的第三大洋，位于亚洲、大洋洲、非洲和南极洲之间。根据NOAA数据，印度洋的面积为7056万平方千米，约占世界海洋总面积的19.5%；体积为26400万立方千米，约占世界海洋总体积的19.8%
+                </p>
+            </li>
+            <li>
+                <h3>北冰洋</h3>
+                <p>北冰洋（Arctic
+                    Ocean），又称北极海、冰水洋，是地球四大洋之一，是世界最小最浅又最冷的大洋。大致以北极圈为中心，位于地球最北端，被加拿大、美国阿拉斯加、俄罗斯、挪威、冰岛和格陵兰（丹）环绕，有狭窄的白令海峡与太平洋相通；通过格陵兰海和许多海峡与大西洋相连。
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="si">
+        <div class="z">
+            <ul>
+                <li><img src="imges/xwy.jpg" alt=""></li>
+                <li><img src="imges/xwy22.jpg" alt=""></li>
+                <li><img src="imges/xwy33.jpg" alt=""></li>
+                <li><img src="imges/xwy.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="y">
+            <h2>夏威夷为什么成为度假圣地</h2>
+            <p>夏威夷是世界上著名的度假圣地，夏威夷之所以那么受欢迎是有原因的，第一个是因为夏威夷气候很好，全年气候都非常舒适。夏威夷一年四季都适合旅游，旺季在每年的十二月到四月之间，六到八月也是旺季，如果是在这个时间段来夏威夷的话，一定要提前预订机票和夏威夷豪华别墅。
+                来到夏威夷旅游，大家不需要准备衣服都很简单的，不管什么时间来，短裤、裙子+泳衣都可以的，但是如果晚上要外出的话，还是带一件外套比较好，夜晚还是有一丝丝凉意的，喜欢外出的朋友，第六感建议大家准备好防晒霜，这样对于皮肤也是有好处的。
+            </p>
+            <p>第二个原因就是这里的旅游景点比较多。夏威夷这里可以游览的景点主要是位于五座岛屿上，像是欧胡岛，这里是夏威夷的首府城市火奴鲁鲁所在地，还有就是夏威夷大岛了，大岛上面有火山国家公园，这里的茂宜岛上面有漂亮的卡拉纳帕利沙滩。除此之外，还有拉奈岛、可爱岛可以前去参观。
+            </p>
+
+            <p>
+                第三个原因就是夏威夷的美食非常的出色。夏威夷这里自然是有本土美食的，但是也有来自于世界五大洲的美食，真的是一座国际性非常强的度假海岛。夏威夷这里的特色美食有月亮鱼。月亮鱼本身非常的漂亮，五彩斑斓的，而且其肉质也颜色不同，近几年月亮鱼制作的菜肴越来越出名了，大家来到夏威夷千万不要错过。
+            </p>
+
+            <p>还有烤猪宴席，美国传统的烤猪是在坑里面烤的，在坑里面摆放上黑色的石头，经过加热，石头变得滚烫，然后再把一些石头放进猪的肚子里面，其余的在猪的下面，而猪是用芭蕉叶包起来的，上面盖上土，经过五到六个小时之后，猪肉就熟透了，这样烤出来的猪肉非常的鲜嫩，而且一点都不油腻，所以即使不爱吃肥肉的也能够吃上一块。
+            </p>
+        </div>
+    </div>
+    <div class="wu">
+        <div class="zuo">
+
+            大海一望无际 海风可以吹走所以烦恼<br>
+
+            你的蓝是天空蓝 我的蓝是深海蓝 我说的不是颜色 你知道的。<br>
+
+            大海深处有一家蓝色的便利店，贩卖蓝色的孤独<br>
+
+            海的那边是尽头 是曲折 是我们曾经至死不渝的梦想和挚爱<br>
+
+            大海很好看 但船得靠岸.<br>
+
+            花店不开了 花继续开 大海枯竭了 海王依旧在 <br>
+
+            大海的深处贩卖着蓝色的孤独，温柔的人会带你离开海底<br>
+
+            我喜欢大海的干净 可我生来就在离海最远的城市<br>
+
+            海边有风浪 心中有晴天<br>
+
+            海和你都有治愈坏心情的超能力 海可以治愈心情 而你可以治愈一切<br>
+
+            自带滤镜的夏 海是可触碰的蓝天<br>
+
+            我想要坠入深海里，看悠闲游荡的鲸鱼<br>
+
+        </div>
+        <div class="zhong"></div>
+        <div class="you"><img src="imges/hai.jpg" alt=""></div>
+    </div>
+    <script>
+        // var boxTop = $(".box").offset().top;
+        // $(document).scrollTop(100);  //  让其滚动6.25rem
+        $(window).scroll(function () {
+
+            if ($(document).scrollTop() >= 700) {
+                $(".back").fadeIn();
+            } else {
+                $(".back").fadeOut();
+            }
+            // 返回顶部
+            $(".back").click(function () {
+                $("body, html").stop().animate({
+                    scrollTop: 0
+                })
+            })
+
+            // $(".back").click(function () {
+            //     $(document).stop().animate({
+            //         scrollTop: 0
+            //     }) 
+            // })     不能是文档，而是元素做动画
+        })
+    </script>
+</body>
+
+</html>

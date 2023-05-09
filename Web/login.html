@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+        }
+
+        * {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: #3315ae;
+        }
+
+        .bg {
+            position: absolute;
+            width: 100%;
+            height: 850px;
+            /* background: url(imges/xingkong.png) no-repeat; */
+            background: -webkit-gradient(linear, 0 100%, 100% 100%, from(rgb(0, 170, 255)), to(rgb(241, 129, 129)));
+            background-size: 100% 100%;
+        }
+
+        .register {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* border-radius: 10%; */
+            box-shadow: 10px 10px 6px rgba(0, 0, 0, .3);
+            opacity: 1;
+            width: 45%;
+            height: 55%;
+            /* background-color: pink; */
+            background: -webkit-gradient(linear, 0 100%, 100% 100%, from(#00d4ff), to(#ff2800c9));
+            opacity: 1;
+        }
+
+        .img {
+            float: left;
+            /* background: url(imges/bg.png) no-repeat; */
+            background-size: 100% 100%;
+            height: 100%;
+            width: 50%;
+            background-color: aqua;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        [class^=part] {
+            float: right;
+            width: 50%;
+            height: 20%;
+            /* background-color: purple; */
+        }
+
+        input {
+            transform: translate(94px, 5px);
+            height: 35%;
+            width: 60%;
+        }
+
+        .part1 {
+            text-align: center;
+            line-height: 85px;
+            color: rgb(0 255 219);
+            font-size: 30px;
+        }
+
+        .part2 p {
+            transform: translate(14px, 29px);
+            font-size: 16px;
+        }
+
+        .part2 a {
+            display: block;
+            transform: translate(208px, 18px);
+        }
+
+        .part3 p {
+            transform: translate(30px, 31px);
+            font-size: 16px;
+        }
+
+        .part4 {
+            display: block;
+            transform: translate(-133px, -5px);
+            text-align: center;
+            font-size: 18px;
+            line-height: 50px;
+            background-color: pink;
+            border-radius: 20%;
+            height: 11%;
+            width: 16%;
+            transition: all .5s;
+        }
+
+        .part4:hover {
+
+            transform: translate(-133px, -5px) scale(1.05);
+        }
+
+        i {
+            font-size: 14px;
+            display: inline-block;
+            transform: translate(116px, 60px);
+        }
+        .part35 p {
+            transform: translate(47px, 31px);
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="register">
+            <div class="img"><img src="img/bg.png" alt=""></div>
+            <div class="part1">欢迎注册</div>
+            <div class="part2">
+                <p>手机号码:</p><input type="text"><a href="#">点击获取验证码</a>
+            </div>
+            <div class="part3">
+                <p>验证码:</p><input type="text">
+            </div>
+            <div class="part35">
+                <p>密码:</p><input type="text">
+            </div>
+            <a href="enter.html" class="part4">完成注册</a>
+            <i>遇到问题？请点击<a href="#">这里</a></i>
+        </div>
+    </div>
+    <script>
+        
+    </script>
+</body>
+
+</html>

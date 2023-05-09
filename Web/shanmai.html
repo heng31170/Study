@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山脉</title>
+    <script src="jquery.mini.js"></script>
+    <script src="flexible.js"></script>
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <link rel="stylesheet" href="toubu.css">
+    <style>
+        .er {
+            overflow: hidden;
+            position: relative;
+            height: 50rem;
+        }
+        @keyframes move {
+            0% {}
+
+            100% {
+                transform: scale(1.5);
+            }
+        }
+        .er img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            animation-name: move;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        .er .mulu {
+            position: absolute;
+            margin-left: 6.25rem;
+            margin-top: 9.375rem;
+            height: 31.25rem;
+            width: 18.75rem;
+            /* background-color: #fff; */
+        }
+
+        .er .mulu a {
+            display: block;
+            color: skyblue;
+            line-height: 3.75rem;
+            font-size: 1.25rem;
+        }
+
+        .er .mulu a:hover {
+            color: gray;
+        }
+
+        .er p {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 31.25rem;
+            width: 31.25rem;
+            padding-top: 18.75rem;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        .san {
+            background: url(imges/ads.jpg);
+            background-size: 100% 100%;
+            height: 56.25rem;
+            background-color: skyblue;
+            margin-top: 3.125rem;
+        }
+
+        .san .a {
+            float: left;
+            margin: 12.5rem 0 0 12.5rem;
+            width: 31.25rem;
+            height: 31.25rem;
+            /* background-color: pink; */
+            line-height: 1.875rem;
+            color: #fff;
+        }
+
+        .san h2 {
+            margin-bottom: 1.875rem;
+        }
+
+        .si {
+            position: relative;
+            height: 43.75rem;
+            /* background-color: skyblue; */
+            margin-top: 3.125rem;
+        }
+
+        .sileft {
+            position: absolute;
+            overflow: hidden;
+            z-index: 10;
+            left: 3.125rem;
+            top: 0;
+            height: 37.5rem;
+            width: 50rem;
+            cursor: pointer;
+        }
+
+        .si .box {
+            position: absolute;
+            z-index: 1;
+            left: 3.125rem;
+            top: 0;
+            height: 37.5rem;
+            width: 50rem;
+            /* background-color: pink; */
+        }
+
+        .sileft img {
+            width: 200%;
+            height: 100%;
+        }
+
+        .si .a {
+            position: absolute;
+            right: 6.25rem;
+            top: 6.25rem;
+            width: 31.25rem;
+            height: 31.25rem;
+            /* background-color: pink; */
+            line-height: 1.875rem;
+            color: #fff;
+        }
+
+        .si h2 {
+            margin-bottom: 1.875rem;
+        }
+
+        .wu {
+            position: relative;
+            height: 56.25rem;
+        }
+
+        .wu .a {
+            position: absolute;
+            left: 6.25rem;
+            top: 6.25rem;
+            width: 31.25rem;
+            height: 31.25rem;
+            /* background-color: pink; */
+            line-height: 1.875rem;
+            color: #fff;
+        }
+
+        .wu .r {
+            position: absolute;
+            top: 3.125rem;
+            right: 6.25rem;
+            height: 37.5rem;
+            width: 50rem;
+            cursor: pointer;
+        }
+
+        .wu .r img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .active {
+            z-index: 10;
+        }
+
+        .r1 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .r2 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .r3 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .r4 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .wu h2 {
+            margin-bottom: 1.875rem;
+        }
+
+        .back {
+            z-index: 100;
+            text-align: center;
+            line-height: 1.875rem;
+            position: fixed;
+            display: none;
+            background-color: gray;
+            width: 1.875rem;
+            height: 1.875rem;
+            right: 0;
+            top: 37.5rem;
+            cursor: pointer;
+        }
+        .ulya,.search {
+            background: -webkit-gradient(linear, 0 100%, 100% 100%, from(rgb(13 105 169 / 48%)), to(rgb(58 18 146 / 49%)));;
+        }
+        .ulya a,span{
+            color: #4071ff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="back">↑</div>
+    <div class="top">
+        <div class="tt">
+            <span>
+                &#xe717;
+            </span>
+            <div class="ulya">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="haiyang.html">海洋</a></li>
+                    <li><a href="shanmai.html">山脉</a></li>
+                    <li><a href="senlin.html">森林</a></li>
+                </ul>
+                <div class="login">
+                    <a href="enter.html">
+                        <div class="tou"><img src="imges/tou1.png" alt=""></div>
+                        <div class="dl">登录</div>
+                    </a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="search" style="height: 1.875rem; width: 31.25rem;" value="请输入搜索内容">
+                <div class="sousuo">
+                    <a href="#" style="color: #4071ff;">&#xe610;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="er">
+        <img src="imges/mountain.jpg" alt="">
+        <div class="mulu">
+            <a href="javascript:;">⚪安第斯山脉</a>
+            <a href="javascript:;">⚪喜马拉雅山脉</a>
+            <a href="javascript:;">⚪阿尔卑斯山脉</a>
+        </div>
+        <p>山脉(Mountain)是指沿一定方向延伸、包括若干条山岭和山谷组成的山体，因像脉状、而且有某种整体性质可以一起称呼，而称之为山脉。主要是由于地壳运动中的内营力作用，有明显的褶皱，从而区别于山地，而山地则是在一定的力的作用下，褶皱现象不明显。
+        </p>
+    </div>
+    <div class="san">
+
+        <div class="a">
+            <h2>安第斯山脉</h2>
+            <p>安第斯山脉（盖丘亚语：Andes；奇楚亚语：Antis），属于科迪勒拉山系，也称安弟斯山脉或安蒂斯山脉，位于南美洲的西岸，从北到南全长8900余千米，是世界上最长的山脉。<br>安第斯山脉是世界上除亚洲之外最高的山脉，平均海拔3660米，最高峰是位于阿根廷境内的主山峰阿空加瓜山（Aconcagua），海拔6962米，为西半球和南半球第一高峰，是世界海拔最高的死火山。
+                安第斯山脉范围从巴拿马一直到智利。</p>
+        </div>
+    </div>
+
+    <div class="si">
+        <div class="box"></div>
+        <div class="sileft"><img src="imges/xmly.jpg" alt=""></div>
+        <div class="a">
+            <h2>喜马拉雅山脉</h2>
+            <p>喜马拉雅山脉 （梵语：hima
+                alaya，意为雪域），藏语意为“雪的故乡”。位于青藏高原南巅边缘，是世界海拔最高的山脉。是东亚大陆与南亚次大陆的天然界山，也是中国与印度、尼泊尔、不丹、巴基斯坦等国的天然国界，西起克什米尔的南迦－帕尔巴特峰（海拔8125米），东至雅鲁藏布江大拐弯处的南迦巴瓦峰（海拔7782米），全长2450千米，宽200～350千米。
+                主峰是世界最高峰珠穆朗玛峰 （又名圣母峰，藏语名：Qomolangma） ，是藏语第三女神的意思，海拔高达8848.86米。据最新测定数据表明，珠穆朗玛峰平均每年增高1厘米</p>
+        </div>
+    </div>
+    <div class="wu">
+        <div class="a">
+            <h2 id="arbs">阿尔卑斯山脉</h2>
+            <p>阿尔卑斯山脉（英语Alps）位于欧洲中南部，覆盖了意大利北部、法国东南部、瑞士、列支敦士登、奥地利、德国南部及斯洛文尼亚。阿尔卑斯山脉自亚热带地中海海岸法国的尼斯附近向北延伸至日内瓦湖，然后再向东北伸展至多瑙河上的维也纳。
+                阿尔卑斯山脉呈弧形，长1200千米，宽130~260千米，平均海拔约3000米，总面积大约为22万平方公里。其中有82座山峰超过4000米的海拔，最高峰是勃朗峰，海拔4810米，位于法国、意大利和瑞士的交界处。
+                阿尔卑斯山脉地处温带和亚热带纬度之间，成为中欧温带大陆性湿润气候和南欧亚热带夏干气候的分界线。高峰全年寒冷，在海拔2000米处年平均气温为0℃。山地年降水量一般为1200～2000毫米，但因地而异。海拔3000米左右为最大降水带。高山区年降水量超过2500毫米，背风坡山间谷地只有750毫米。
+            </p>
+        </div>
+        <div class="r">
+            <div class="r1 active"><img src="imges/arbs-1.jpg" alt=""></div>
+            <div class="r2"><img src="imges/arbs-2.jpg" alt=""></div>
+            <div class="r3"><img src="imges/arbs3.jpg" alt=""></div>
+            <div class="r4"><img src="imges/arbs4.jpg" alt=""></div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            // 1.
+            $(window).scroll(function () {
+                if ($(document).scrollTop() >= 700) {
+                    $(".back").fadeIn();
+                } else {
+                    $(".back").fadeOut();
+                }
+                // 返回顶部
+                $(".back").on('click', (function () {
+                    $("body, html").stop().animate({
+                        scrollTop: 0
+                    })
+                }))
+
+            })
+            // 2.
+            $(".mulu a").eq(0).click(function () {
+                $("body, html").stop().animate({
+                    scrollTop: 950
+                })
+            })
+            $(".mulu a").eq(1).click(function () {
+                $("body, html").stop().animate({
+                    scrollTop: 1750
+                })
+            })
+            $(".mulu a").eq(2).click(function () {
+                $("body, html").stop().animate({
+                    scrollTop: 2550
+                })
+            })
+
+            // 2.5
+            $(".r1").on("click", function () {
+                $(".r2").addClass("active").fadeIn().siblings().removeClass("active").fadeOut();
+            });
+            $(".r2").on("click", function () {
+                $(".r3").addClass("active").fadeIn().siblings().removeClass("active").fadeOut();
+            });
+            $(".r3").on("click", function () {
+                $(".r4").addClass("active").fadeIn().siblings().removeClass("active").fadeOut();
+            });
+            $(".r4").on("click", function () {
+                $(".r1").addClass("active").fadeIn().siblings().removeClass("active").fadeOut();
+            })
+
+
+            // 3.
+            // $(".si .a").on("click", function () {
+            //     $('.sileft').animate({
+            //         left: 850
+            //     }, 1500);
+            // });
+            $(".sileft").on("click", function () {
+                $('.sileft').animate({
+                    left: 850
+                }, 1500);
+            });
+            $(".si .box").on("click", function () {
+                $('.sileft').animate({
+                    left: 50
+                }, 1500);
+            });
+            // 4.
+            var ROOT_PATH = 'https://echarts.apache.org/examples';
+            var paperDataURI =
+                'data:image/png;base64,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';
+            // 3.实例化对象
+            var myChart = echarts.init(document.querySelector('.box'));
+            // 4.指定数据和配置
+            var option;
+
+            option = {
+                backgroundColor: '#0f375f',
+                tooltip: {},
+                legend: {
+                    textStyle: { color: '#ddd' }
+                },
+                xAxis: [
+                    {
+                        data: ['Christmas Wish List', '', 'Qomolangma', 'Kilimanjaro'],
+                        axisTick: { show: false },
+                        axisLine: { show: false },
+                        axisLabel: {
+                            margin: 20,
+                            color: '#ddd',
+                            fontSize: 14
+                        }
+                    }
+                ],
+                yAxis: {
+                    splitLine: { show: false },
+                    axisTick: { show: false },
+                    axisLine: { show: false },
+                    axisLabel: { show: false }
+                },
+                markLine: {
+                    z: -1
+                },
+                animationEasing: 'elasticOut',
+                series: [
+                    {
+                        type: 'pictorialBar',
+                        name: 'All',
+                        emphasis: {
+                            scale: true
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c} m',
+                            fontSize: 16,
+                            color: '#e54035'
+                        },
+                        data: [
+                            {
+                                value: 13000,
+                                symbol: 'image://' + paperDataURI,
+                                symbolRepeat: true,
+                                symbolSize: ['130%', '20%'],
+                                symbolOffset: [0, 10],
+                                symbolMargin: '-30%',
+                                animationDelay: function (dataIndex, params) {
+                                    return params.index * 30;
+                                }
+                            },
+                            {
+                                value: '-',
+                                symbol: 'none'
+                            },
+                            {
+                                value: 8844,
+                                symbol:
+                                    'image://' + ROOT_PATH + '/data/asset/img/hill-Qomolangma.png',
+                                symbolSize: ['200%', '105%'],
+                                symbolPosition: 'end',
+                                z: 10
+                            },
+                            {
+                                value: 5895,
+                                symbol:
+                                    'image://' + ROOT_PATH + '/data/asset/img/hill-Kilimanjaro.png',
+                                symbolSize: ['200%', '105%'],
+                                symbolPosition: 'end'
+                            }
+                        ],
+                        markLine: {
+                            symbol: ['none', 'none'],
+                            label: {
+                                show: false
+                            },
+                            lineStyle: {
+                                color: '#e54035',
+                                width: 2
+                            },
+                            data: [
+                                {
+                                    yAxis: 8844
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        name: 'All',
+                        type: 'pictorialBar',
+                        barGap: '-100%',
+                        symbol: 'circle',
+                        itemStyle: {
+                            color: '#185491'
+                        },
+                        silent: true,
+                        symbolOffset: [0, '50%'],
+                        z: -10,
+                        data: [
+                            {
+                                value: 1,
+                                symbolSize: ['150%', 50]
+                            },
+                            {
+                                value: '-'
+                            },
+                            {
+                                value: 1,
+                                symbolSize: ['200%', 50]
+                            },
+                            {
+                                value: 1,
+                                symbolSize: ['200%', 50]
+                            }
+                        ]
+                    }
+                ]
+            };
+            // 5.把数据和配置给对象
+            option && myChart.setOption(option);
+        })
+
+    </script>
+</body>
+
+</html>

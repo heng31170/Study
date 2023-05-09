@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界之大</title>
+    <script src="jquery.mini.js"></script>
+    <script src="flexible.js"></script>
+    <script src="lunbo.js"></script>
+    <link rel="stylesheet" href="toubu.css">
+    <link rel="stylesheet" href="lunbo.css">
+
+    <style>
+        .two {
+            height: 18.75rem;
+            /* background-color: skyblue; */
+            margin: 3.125rem auto 0 auto;
+            /* width: 75rem; */
+            border-bottom: .0625rem dotted rgb(219, 203, 203);
+
+        }
+
+        .two img:hover {
+            transform: translateY(-0.625rem);
+        }
+
+        .zuo {
+            float: left;
+            padding: 1.875rem;
+            width: 37.5rem;
+            height: 18.75rem;
+            margin-left: 6.25rem;
+            /* background-color: gray; */
+        }
+
+        .you {
+            height: 18.75rem;
+            width: 56.25rem;
+            float: right;
+            /* background-color: red; */
+            text-align: center;
+            line-height: 18.75rem;
+        }
+
+        .two .img {
+            width: 31.25rem;
+            height: 15.625rem;
+        }
+
+        .san {
+            width: 81.1875rem;
+            /* height: 15.625rem; */
+            /* background-color: skyblue; */
+            margin: 6.25rem auto;
+            /* border: .125rem solid blue; */
+        }
+
+        .san .three img {
+            width: 100%;
+            height: 12.5rem;
+        }
+
+        .san .three {
+            width: 18.75rem;
+            /* background-color: #808080; */
+            height: 15.625rem;
+            float: left;
+            margin-right: 2.0625rem;
+            text-align: center;
+            /* margin-top: .625rem; */
+        }
+
+        .san .three p {
+            margin-top: .625rem;
+        }
+
+        .bottom {
+            margin-bottom: 12.5rem;
+            height: 18.75rem;
+            /* background-color: skyblue; */
+            margin-top: .625rem;
+            text-align: center;
+        }
+
+        .three:hover {
+            box-shadow: .3125rem .625rem .625rem .625rem rgba(236, 231, 231, 0.3)
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .z {
+            float: right;
+            padding: 1.875rem;
+            height: 18.75rem;
+            width: 37.5rem;
+            /* background-color: skyblue; */
+            margin-right: 9.375rem;
+        }
+
+        .y {
+            float: left;
+            height: 18.75rem;
+            width: 53.125rem;
+            /* background-color: pink; */
+            /* transition: all .5s; */
+        }
+
+        .y img:hover {
+            transform: translateY(-0.625rem);
+        }
+
+        .y img {
+            height: 18.75rem;
+            width: 37.5rem;
+        }
+
+
+
+        .my {
+            /* background: url(imges/beijing.jpg) no-repeat;
+            background-size: 100% 50rem; */
+            overflow: hidden;
+            height: 50rem;
+            background-color: pink;
+            text-align: center;
+            font-size: 1.875rem;
+        }
+
+        .my p {
+            z-index: 3;
+            transform: translateY(-28.125rem);
+        }
+
+        @keyframes move {
+            0% {}
+
+            100% {
+                transform: scale(1.5);
+            }
+        }
+
+        .my img {
+            width: 100%;
+            height: 100%;
+            animation-name: move;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .back {
+            z-index: 100;
+            text-align: center;
+            line-height: 1.875rem;
+            position: fixed;
+            display: none;
+            background-color: gray;
+            width: 1.875rem;
+            height: 1.875rem;
+            right: 0;
+            top: 37.5rem;
+            cursor: pointer;
+        }
+
+        .ulya {
+            background: -webkit-gradient(linear, 0 100%, 100% 100%, from(rgb(22 17 91 / 54%)), to(rgb(39 66 64 / 57%)));
+        }
+
+        .search {
+            background: -webkit-gradient(linear, 0 100%, 100% 100%, from(rgb(22 17 91 / 54%)), to(rgb(39 66 64 / 57%)));
+        }
+
+        .ulya a,
+        span {
+            color: #30b8f3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">↑</div>
+    <div class="top">
+        <div class="tt">
+            <span>
+                &#xe717;
+            </span>
+            <div class="ulya">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="haiyang.html">海洋</a></li>
+                    <li><a href="shanmai.html">山脉</a></li>
+                    <li><a href="senlin.html">森林</a></li>
+                </ul>
+                <div class="login">
+                    <a href="enter.html">
+                        <div class="tou"><img src="imges/tou1.png" alt=""></div>
+                        <div class="dl">登录</div>
+                    </a>
+                </div>
+            </div>
+            <div class="search">
+                <input type="search" style="height: 1.875rem; width: 31.25rem;" value="请输入搜索内容">
+                <div class="sousuo">
+                    <a href="#" style="color: #30b8f3;">&#xe610;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="my">
+        <img src="imges/starry1.png" alt="">
+        <p>Welcome to my Web</p>
+    </div>
+    <div class="two">
+        <div class="zuo">
+            <h2>法罗群岛的 Drangarnir 海蚀柱</h2>
+            <p>法罗群岛坐落在冰岛与挪威之间冰冷的北大西洋上，显然不走寻常路。确实，这里超现实的壮阔景观似乎具备梦幻般的超凡特质。感受法罗群岛惊人奇景的最佳地点之一就是在离开沃加尔岛（法罗群岛
+                18 个岛屿中的一个）海岸不远处的一对海蚀柱前。两个海蚀柱一个名叫 Stóri Drangur（图片中有钥匙孔状拱门的巨大岩石），另一个叫做 Lítli
+                Drangur（从更大的那块岩石右下坡上方露头），共同组成了名为 Drangarnir 的海上拱门。从海蚀柱后方隐约显现出来的是希特霍姆岛。</p>
+        </div>
+        <div class="you">
+            <img src="imges/qundao.jpg" alt="了解更多">
+        </div>
+    </div>
+    <div class="box">
+        <div class="btn left"> &lt;</div>
+        <div class="btn right"> &gt;</div>
+        <div class="dad">
+            <div class="radius pointcurrent" index="0"></div>
+            <div class="radius" index="1"></div>
+            <div class="radius" index="2"></div>
+        </div>
+        <ul>
+            <li class="item imgcurrent"><img src="imges/1.jpg" alt=""></li>
+            <li class="item"><img src="imges/2.png" alt=""></li>
+            <li class="item"><img src="imges/3.png" alt=""></li>
+        </ul>
+    </div>
+    <div class="san">
+        <div class="three"><img src="imges/heiye.jpg" alt="">
+            <p>在某个夜晚...</p>
+        </div>
+        <div class="three"><img src="imges/luori.jpg" alt="">
+            <p>夕阳西下，断肠人在天涯...</p>
+        </div>
+        <div class="three"><img src="imges/xingkong.png" alt="">
+            <p>彩色星空...</p>
+        </div>
+        <div class="three" style="margin-right:0;"><img src="imges/shayu.jpg" alt="">
+            <p>这么大的鱼你见过吗...</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="bottom">
+        <div class="z">
+            <h2>在朱利安阿尔卑斯山靠斯洛文尼亚的一侧</h2>
+            遥远的地平线上露出的是朱利安阿尔卑斯山靠意大利的一侧。这张照片是在靠斯洛文尼亚
+            这一侧拍摄的。朱利安是阿尔卑斯山脉的分支，构成了意大利与斯洛文尼亚两国之间的天然边界。朱利安阿尔卑斯山的很大一部分位于斯洛文尼亚的特里格拉夫国家公园
+            内。如果你猜测该山脉是以某个罗马皇帝的名字命名的，那你没猜错：在公元前 50 年左右，尤利乌斯·凯撒 在现在的意大利一侧的山上发现了一座小镇。随着罗马帝国版图的扩大，该山脉变成了朱利安阿尔卑斯山脉。
+        </div>
+        <div class="y">
+            <img src="imges/bg1.webp" alt="">
+        </div>
+    </div>
+
+    <script>
+        // var boxTop = $(".box").offset().top;
+        // $(document).scrollTop(100);//  让其滚动6.25rem
+        $(window).scroll(function () {
+
+            if ($(document).scrollTop() >= 700) {
+                $(".back").fadeIn();
+            } else {
+                $(".back").fadeOut();
+            }
+            // 返回顶部
+            $(".back").click(function () {
+                $("body, html").stop().animate({
+                    scrollTop: 0
+                })
+            })
+
+            // $(".back").click(function () {
+            //     $(document).stop().animate({
+            //         scrollTop: 0
+            //     }) 
+            // })     不能是文档，而是元素做动画
+        })
+    </script>
+</body>
+
+</html>
